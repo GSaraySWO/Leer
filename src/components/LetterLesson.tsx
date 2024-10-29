@@ -10,7 +10,6 @@ export default function LetterLesson() {
   const [selectedSyllable, setSelectedSyllable] = useState<string | null>(null);
   const [examples, setExamples] = useState<Example[]>([]);
   const [loading, setLoading] = useState(true);
-  //const [language, setLanguage] = useState<'en' | 'es'>('en'); // Add state for language
 
   useEffect(() => {
     const loadExamples = async () => {
@@ -31,7 +30,19 @@ export default function LetterLesson() {
       }
     };
     loadExamples();
-  }, [selectedLetter, userProgress?.language]);
+
+    const handleBackButton = () => {
+      setState('menu');
+      return true;
+    };
+
+    document.addEventListener('backbutton', handleBackButton);
+
+    return () => {
+      document.removeEventListener('backbutton', handleBackButton);
+    };
+
+  }, [selectedLetter, userProgress?.language, setState]);
 
   const syllables = selectedLetter
     ? VOWELS.map((vowel) => selectedLetter.toLowerCase() + vowel.toLowerCase())

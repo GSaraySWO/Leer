@@ -29,7 +29,19 @@ export default function VowelLesson() {
     };
 
     loadExamples();
-  }, [selectedLetter, userProgress?.language]);
+
+    const handleBackButton = () => {
+      setState('menu');
+      return true;
+    };
+
+    document.addEventListener('backbutton', handleBackButton);
+
+    return () => {
+      document.removeEventListener('backbutton', handleBackButton);
+    };
+
+  }, [selectedLetter, userProgress?.language, setState]);
 
   const handleComplete = () => {
     if (selectedLetter) {
