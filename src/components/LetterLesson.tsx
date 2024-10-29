@@ -6,7 +6,7 @@ import { Example } from '../types/game';
 const VOWELS = ['A', 'E', 'I', 'O', 'U'];
 
 export default function LetterLesson() {
-  const { selectedLetter, setState, userProgress, addStars, addCompletedLetter } = useGameStore();
+  const { selectedLetter, setState, userProgress, addStars, addCompletedLetter, setUserProgress } = useGameStore();
   const [selectedSyllable, setSelectedSyllable] = useState<string | null>(null);
   const [examples, setExamples] = useState<Example[]>([]);
   const [loading, setLoading] = useState(true);
@@ -60,6 +60,17 @@ export default function LetterLesson() {
     (example) => !selectedSyllable || example.syllable === selectedSyllable
   );
 
+  const toggleLanguage = () => {
+    const newLanguage = userProgress?.language === 'en' ? 'es' : 'en';
+    setUserProgress({ 
+      ...userProgress, 
+      language: newLanguage, 
+      name: userProgress?.name || '', 
+      completedLetters: userProgress?.completedLetters || [], 
+      stars: userProgress?.stars || 0 
+    });
+  };
+  
   const handleBack = () => {
     if (selectedSyllable) {
       setSelectedSyllable(null);
@@ -99,6 +110,9 @@ export default function LetterLesson() {
           <div className="flex items-center gap-2 text-white">
             <Star fill="currentColor" />
             <span className="text-xl font-bold">{userProgress?.stars || 0}</span>
+            <button onClick={toggleLanguage} className="ml-4 p-2 bg-gray-200 rounded">
+              {userProgress?.language === 'en' ? 'ES' : 'EN'}
+            </button>
           </div>
         </header>
 
@@ -141,7 +155,7 @@ export default function LetterLesson() {
                   <img
                     src={example.image}
                     alt={example.word}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-contain"
                   />
                   <div className="p-4">
                     <p className="text-xl font-bold text-center mb-2">

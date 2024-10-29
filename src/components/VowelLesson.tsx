@@ -4,7 +4,7 @@ import { ArrowLeft, Star, Volume2 } from 'lucide-react';
 import { Example } from '../types/game';
 
 export default function VowelLesson() {
-  const { selectedLetter, setState, userProgress, addStars, addCompletedLetter } =
+  const { selectedLetter, setState, userProgress, addStars, addCompletedLetter, setUserProgress } =
     useGameStore();
   const [examples, setExamples] = useState<Example[]>([]);
   const [loading, setLoading] = useState(true);
@@ -49,6 +49,17 @@ export default function VowelLesson() {
       setState('menu');
     };
 
+  const toggleLanguage = () => {
+    const newLanguage = userProgress?.language === 'en' ? 'es' : 'en';
+    setUserProgress({ 
+      ...userProgress, 
+      language: newLanguage, 
+      name: userProgress?.name || '', 
+      completedLetters: userProgress?.completedLetters || [], 
+      stars: userProgress?.stars || 0 
+    });
+  };
+  
   const handleComplete = () => {
     if (selectedLetter) {
       addStars(5);
@@ -79,6 +90,9 @@ export default function VowelLesson() {
           <div className="flex items-center gap-2 text-white">
             <Star fill="currentColor" />
             <span className="text-xl font-bold">{userProgress?.stars || 0}</span>
+            <button onClick={toggleLanguage} className="ml-4 p-2 bg-gray-200 rounded">
+              {userProgress?.language === 'en' ? 'ES' : 'EN'}
+            </button>
           </div>
         </header>
 
@@ -102,7 +116,7 @@ export default function VowelLesson() {
                 <img
                   src={example.image}
                   alt={example.word}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-contain"
                 />
                 <div className="p-4">
                   <p className="text-xl font-bold text-center mb-2">

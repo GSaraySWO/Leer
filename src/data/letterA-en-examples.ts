@@ -8,31 +8,31 @@ export const vowelExamples: VowelExamples = {
   A: [
     {
       word: 'Apple',
-      image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6',
+      image: '/src/assets/images/apple.jpg',
       audio: '',
       syllable: 'a'
     },
     {
       word: 'Ant',
-      image: 'https://images.unsplash.com/photo-1593110938965-4ce25f2ad93f',
+      image: '/src/assets/images/ant.jpg',
       audio: '',
       syllable: 'a'
     },
     {
       word: 'Arrow',
-      image: 'https://images.unsplash.com/photo-1614680376573-df3480f0c6ff',
+      image: '/src/assets/images/arrow.jpg',
       audio: '',
       syllable: 'a'
     },
     {
       word: 'Astronaut',
-      image: 'https://images.unsplash.com/photo-1614728894747-a83421789f10',
+      image: '/src/assets/images/astronaut.jpg',
       audio: '',
       syllable: 'a'
     },
     {
       word: 'Airplane',
-      image: 'https://images.unsplash.com/photo-1556388158-158ea5ccacbd',
+      image: '/src/assets/images/airplane.jpg',
       audio: '',
       syllable: 'a'
     }

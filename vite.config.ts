@@ -10,7 +10,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'Bilingual Learning Game',
+        name: 'Learn to Read',
         short_name: 'Learn Lang',
         description: 'Interactive bilingual learning game for English and Spanish',
         theme_color: '#ffffff',

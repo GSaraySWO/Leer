@@ -9,31 +9,31 @@ export const letterExamples: LetterExamples = {
     // Ba examples
     {
       word: 'Banana',
-      image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e',
+      image: '/src/assets/images/banana.jpg',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Ball',
-      image: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68',
+      image: '/src/assets/images/ball.jpg',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Balloon',
-      image: 'https://images.unsplash.com/photo-1525268771113-32d9e9021a97',
+      image: '/src/assets/images/balloon.jpg',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Band',
-      image: 'https://images.unsplash.com/photo-1461784121038-f088ca1e7714',
+      image: '/src/assets/images/band.jpg',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Bath',
-      image: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd',
+      image: '/src/assets/images/bath.jpg',
       audio: '',
       syllable: 'ba'
     },
