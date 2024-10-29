@@ -27,21 +27,27 @@ export default function VowelLesson() {
         }
       }
     };
-
     loadExamples();
+  }, [selectedLetter, userProgress?.language]);
 
-    const handleBackButton = () => {
+    // Handle Android back button
+    useEffect(() => {
+      const handleBackButton = (event: PopStateEvent) => {
+        event.preventDefault();
+        setState('menu');
+      };
+  
+      window.history.pushState(null, '', window.location.pathname);
+      window.addEventListener('popstate', handleBackButton);
+  
+      return () => {
+        window.removeEventListener('popstate', handleBackButton);
+      };
+    }, [setState]);
+  
+    const handleBack = () => {
       setState('menu');
-      return true;
     };
-
-    document.addEventListener('backbutton', handleBackButton);
-
-    return () => {
-      document.removeEventListener('backbutton', handleBackButton);
-    };
-
-  }, [selectedLetter, userProgress?.language, setState]);
 
   const handleComplete = () => {
     if (selectedLetter) {
@@ -64,7 +70,7 @@ export default function VowelLesson() {
       <div className="max-w-lg mx-auto">
         <header className="flex justify-between items-center mb-6 sticky top-0 z-10">
           <button
-            onClick={() => setState('menu')}
+            onClick={handleBack}
             className="flex items-center gap-2 text-white hover:bg-white/20 rounded-lg px-4 py-2 transition-colors"
           >
             <ArrowLeft />

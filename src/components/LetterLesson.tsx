@@ -31,18 +31,27 @@ export default function LetterLesson() {
     };
     loadExamples();
 
-    const handleBackButton = () => {
-      setState('menu');
-      return true;
+  }, [selectedLetter, userProgress?.language]);
+
+  // Handle Android back button
+  useEffect(() => {
+    const handleBackButton = (event: PopStateEvent) => {
+      event.preventDefault();
+      if (selectedSyllable) {
+        setSelectedSyllable(null);
+      } else {
+        setState('menu');
+      }
     };
 
-    document.addEventListener('backbutton', handleBackButton);
+    window.history.pushState(null, '', window.location.pathname);
+    window.addEventListener('popstate', handleBackButton);
 
     return () => {
-      document.removeEventListener('backbutton', handleBackButton);
+      window.removeEventListener('popstate', handleBackButton);
     };
+  }, [selectedSyllable, setState]);
 
-  }, [selectedLetter, userProgress?.language, setState]);
 
   const syllables = selectedLetter
     ? VOWELS.map((vowel) => selectedLetter.toLowerCase() + vowel.toLowerCase())
@@ -50,6 +59,15 @@ export default function LetterLesson() {
   const currentExamples = examples.filter(
     (example) => !selectedSyllable || example.syllable === selectedSyllable
   );
+
+  const handleBack = () => {
+    if (selectedSyllable) {
+      setSelectedSyllable(null);
+      window.history.pushState(null, '', window.location.pathname);
+    } else {
+      setState('menu');
+    }
+  };
 
   const handleComplete = () => {
     if (selectedLetter) {
@@ -72,13 +90,7 @@ export default function LetterLesson() {
       <div className="max-w-lg mx-auto">
         <header className="flex justify-between items-center mb-6 sticky top-0 z-10">
           <button
-            onClick={() => {
-              if (selectedSyllable) {
-                setSelectedSyllable(null);
-              } else {
-                setState('menu');
-              }
-            }}
+            onClick={handleBack}
             className="flex items-center gap-2 text-white hover:bg-white/20 rounded-lg px-4 py-2 transition-colors"
           >
             {selectedSyllable ? <ChevronLeft /> : <ArrowLeft />}
