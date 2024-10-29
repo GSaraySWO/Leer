@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button-background {
+    background-image: url('./assets/images/calabaza.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7; /* Adjust the opacity as needed */
+  }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useGameStore } from '../store/gameStore';
 import { ArrowLeft, Star, Volume2 } from 'lucide-react';
-import { fetchVowelExamples } from '../services/api';
 import { Example } from '../types/game';
 
 export default function VowelLesson() {
@@ -14,8 +13,13 @@ export default function VowelLesson() {
     const loadExamples = async () => {
       if (selectedLetter) {
         try {
-          const data = await fetchVowelExamples(selectedLetter);
-          setExamples(data);
+          let data;
+          if (userProgress?.language === 'en') {
+            data = await import(`../data/letter${selectedLetter}-en-examples.ts`);
+          } else {
+            data = await import(`../data/letter${selectedLetter}-es-examples.ts`);
+          }
+          setExamples(data.vowelExamples[selectedLetter]);
         } catch (error) {
           console.error('Error loading examples:', error);
         } finally {
@@ -25,7 +29,7 @@ export default function VowelLesson() {
     };
 
     loadExamples();
-  }, [selectedLetter]);
+  }, [selectedLetter, userProgress?.language]);
 
   const handleComplete = () => {
     if (selectedLetter) {
@@ -78,15 +82,15 @@ export default function VowelLesson() {
                 className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <img
-                  src={example.image_url}
-                  alt={example.word_en}
+                  src={example.image}
+                  alt={example.word}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
                   <p className="text-xl font-bold text-center mb-2">
                     {userProgress?.language === 'en'
-                      ? example.word_en
-                      : example.word_es}
+                      ? example.word
+                      : example.word}
                   </p>
                   <button className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors">
                     <Volume2 size={16} />

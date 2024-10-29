@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { useGameStore } from '../store/gameStore';
 import { ArrowLeft, Star, Volume2, ChevronLeft } from 'lucide-react';
-import { fetchConsonantExamples } from '../services/api';
 import { Example } from '../types/game';
 
 const VOWELS = ['A', 'E', 'I', 'O', 'U'];
 
 export default function LetterLesson() {
-  const { selectedLetter, setState, userProgress, addStars, addCompletedLetter } =
-    useGameStore();
+  const { selectedLetter, setState, userProgress, addStars, addCompletedLetter } = useGameStore();
   const [selectedSyllable, setSelectedSyllable] = useState<string | null>(null);
   const [examples, setExamples] = useState<Example[]>([]);
   const [loading, setLoading] = useState(true);
+  //const [language, setLanguage] = useState<'en' | 'es'>('en'); // Add state for language
 
   useEffect(() => {
     const loadExamples = async () => {
       if (selectedLetter) {
         try {
-          const data = await fetchConsonantExamples(selectedLetter);
-          setExamples(data);
+          let data;
+          if (userProgress?.language === 'en') {
+            data = await import(`../data/letter${selectedLetter}-en-examples.ts`);
+          } else {
+            data = await import(`../data/letter${selectedLetter}-es-examples.ts`);
+          }
+          setExamples(data.letterExamples[selectedLetter]);
         } catch (error) {
           console.error('Error loading examples:', error);
         } finally {
@@ -26,14 +30,12 @@ export default function LetterLesson() {
         }
       }
     };
-
     loadExamples();
-  }, [selectedLetter]);
+  }, [selectedLetter, userProgress?.language]);
 
   const syllables = selectedLetter
     ? VOWELS.map((vowel) => selectedLetter.toLowerCase() + vowel.toLowerCase())
     : [];
-
   const currentExamples = examples.filter(
     (example) => !selectedSyllable || example.syllable === selectedSyllable
   );
@@ -114,15 +116,13 @@ export default function LetterLesson() {
                   className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
                 >
                   <img
-                    src={example.image_url}
-                    alt={example.word_en}
+                    src={example.image}
+                    alt={example.word}
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-4">
                     <p className="text-xl font-bold text-center mb-2">
-                      {userProgress?.language === 'en'
-                        ? example.word_en
-                        : example.word_es}
+                      {example.word}
                     </p>
                     <button className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors">
                       <Volume2 size={16} />

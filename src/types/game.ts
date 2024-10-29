@@ -1,20 +1,13 @@
 export interface Letter {
   letter: string;
-  spanish: string;
-  english: string;
-  audioEn: string;
-  audioEs: string;
+  audio: string;
   examples: Example[];
 }
 
 export interface Example {
-  word: {
-    es: string;
-    en: string;
-  };
+  word: string;
   image: string;
-  audioEn: string;
-  audioEs: string;
+  audio: string;
   syllable: string;
 }
 
