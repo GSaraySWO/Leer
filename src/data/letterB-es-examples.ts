@@ -10,35 +10,35 @@ export const letterExamples: LetterExamples = {
     {
       word: 'Banano',
       translation: 'Banana',
-      image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e',
+      image: '/src/assets/images/banana.jpg',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Balón',
       translation: 'Ball',
-      image: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68',
+      image: '/src/assets/images/ball.jpg',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Baño',
       translation: 'Bath',
-      image: 'https://images.unsplash.com/photo-1525268771113-32d9e9021a97',
+      image: '/src/assets/images/bath.jpg',
       audio: 'Bath',
       syllable: 'ba'
     },
     {
       word: 'Banda',
       translation: 'Band',
-      image: 'https://images.unsplash.com/photo-1461784121038-f088ca1e7714',
+      image: '/src/assets/images/band.jpg',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Bateria',
       translation: 'Battery',
-      image: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd',
+      image: 'https://images.unsplash.com/photo-1461784121038-f088ca1e7714',
       audio: '',
       syllable: 'ba'
     },

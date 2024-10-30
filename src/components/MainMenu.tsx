@@ -1,15 +1,27 @@
-import React from 'react';
+// import React from 'react';
 import { useGameStore } from '../store/gameStore';
 import { Star, Award } from 'lucide-react';
+import { UserProgress } from '../types/game';
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 export default function MainMenu() {
   const { userProgress, setState, setSelectedLetter, setUserProgress } = useGameStore();
+  
+  const defaultUserProgress: UserProgress = {
+    name: '',
+    language: 'en',
+    completedLetters: [],
+    stars: 0
+  }; // Define the default state for userProgress
 
   const handleLetterClick = (letter: string) => {
     setSelectedLetter(letter);
     setState('letter');
+  };
+
+  const resetUserProgress = () => {
+    setUserProgress(defaultUserProgress);
   };
 
   const toggleLanguage = () => {
@@ -60,9 +72,16 @@ export default function MainMenu() {
                     className="absolute top-1 right-1 text-yellow-400"
                   />
                 )}
-              </button>
+              </button>              
             );
           })}
+          <button
+            onClick={resetUserProgress}
+            className="aspect-square rounded-xl flex items-center justify-center text-2xl font-bold transition-all transform active:scale-95 bg-red-400 text-white shadow-lg"
+          >
+            {userProgress?.language === 'en' ? 'Reset' : 'Reiniciar'}
+          </button>
+
         </div>
       </div>
     </div>
