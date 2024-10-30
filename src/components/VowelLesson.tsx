@@ -8,6 +8,7 @@ export default function VowelLesson() {
     useGameStore();
   const [examples, setExamples] = useState<Example[]>([]);
   const [loading, setLoading] = useState(true);
+  // const [imageSrc, setImageSrc] = useState<string | null>(null);
 
   useEffect(() => {
     const loadExamples = async () => {
@@ -68,6 +69,30 @@ export default function VowelLesson() {
     }
   };
 
+  // useEffect(() => {
+  //   const loadImage = async () => {
+  //     if (selectedLetter) {
+  //       const storedImage = localStorage.getItem(`vowelLessonImage-${selectedLetter}`);
+  //       if (storedImage) {
+  //         setImageSrc(storedImage);
+  //       } else {
+  //         let data;
+  //         if (userProgress?.language === 'en') {
+  //           data = await import(`../data/letter${selectedLetter}-en-examples.ts`);
+  //         } else {
+  //           data = await import(`../data/letter${selectedLetter}-es-examples.ts`);
+  //         }
+  //         const image = data.vowelExamples[selectedLetter].image;
+  //         setImageSrc(image);
+  //         localStorage.setItem(`vowelLessonImage-${selectedLetter}`, image);
+  //       }
+  //     }
+  //   };
+
+  //   loadImage();
+  // }, [selectedLetter]);
+
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-blue-400 to-purple-500 flex items-center justify-center">
@@ -90,7 +115,7 @@ export default function VowelLesson() {
           <div className="flex items-center gap-2 text-white">
             <Star fill="currentColor" />
             <span className="text-xl font-bold">{userProgress?.stars || 0}</span>
-            <button onClick={toggleLanguage} className="ml-4 p-2 bg-gray-200 rounded">
+            <button onClick={toggleLanguage} className="ml-4 p-2 inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
               {userProgress?.language === 'en' ? 'ES' : 'EN'}
             </button>
           </div>
@@ -118,11 +143,17 @@ export default function VowelLesson() {
                   alt={example.word}
                   className="w-full h-48 object-contain"
                 />
+
+                {/* {imageSrc ? <img src={imageSrc} alt={`Vowel Lesson ${selectedLetter}`} /> : <p>Loading image...</p>} */}
+
                 <div className="p-4">
                   <p className="text-xl font-bold text-center mb-2">
                     {userProgress?.language === 'en'
                       ? example.word
                       : example.word}
+                        <span style={{ color: 'gray', marginLeft: '10px' }}>
+                        -  {example.translation}
+                        </span>
                   </p>
                   <button className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors">
                     <Volume2 size={16} />
@@ -132,7 +163,7 @@ export default function VowelLesson() {
               </div>
             ))}
           </div>
-
+          {userProgress && selectedLetter && !userProgress.completedLetters.includes(selectedLetter) && (
           <div className="mt-6 text-center">
             <button
               onClick={handleComplete}
@@ -143,6 +174,7 @@ export default function VowelLesson() {
                 : '¡Lo he aprendido!'}
             </button>
           </div>
+          )}
         </div>
       </div>
     </div>

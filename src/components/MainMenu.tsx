@@ -34,7 +34,7 @@ export default function MainMenu() {
           <div className="flex items-center gap-2">
             <Star className="text-yellow-400" fill="currentColor" />
             <span className="text-xl font-bold">{userProgress?.stars || 0}</span>
-            <button onClick={toggleLanguage} className="ml-4 p-2 bg-gray-200 rounded">
+            <button onClick={toggleLanguage} className="ml-4 p-2 inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
               {userProgress?.language === 'en' ? 'ES' : 'EN'}
             </button>
           </div>

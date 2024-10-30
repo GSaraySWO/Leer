@@ -110,7 +110,7 @@ export default function LetterLesson() {
           <div className="flex items-center gap-2 text-white">
             <Star fill="currentColor" />
             <span className="text-xl font-bold">{userProgress?.stars || 0}</span>
-            <button onClick={toggleLanguage} className="ml-4 p-2 bg-gray-200 rounded">
+            <button onClick={toggleLanguage} className="ml-4 p-2 inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
               {userProgress?.language === 'en' ? 'ES' : 'EN'}
             </button>
           </div>
@@ -160,6 +160,9 @@ export default function LetterLesson() {
                   <div className="p-4">
                     <p className="text-xl font-bold text-center mb-2">
                       {example.word}
+                      <span style={{ color: 'gray', marginLeft: '10px' }}>
+                        -  {example.translation}
+                        </span>
                     </p>
                     <button className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors">
                       <Volume2 size={16} />
@@ -184,7 +187,7 @@ export default function LetterLesson() {
             </div>
           )}
 
-          {!selectedSyllable && (
+          {!selectedSyllable && userProgress && selectedLetter && !userProgress.completedLetters.includes(selectedLetter) && (
             <div className="mt-6 text-center">
               <button
                 onClick={handleComplete}

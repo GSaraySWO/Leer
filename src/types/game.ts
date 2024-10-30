@@ -6,6 +6,7 @@ export interface Letter {
 
 export interface Example {
   word: string;
+  translation: string;
   image: string;
   audio: string;
   syllable: string;
