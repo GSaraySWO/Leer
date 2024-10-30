@@ -14,9 +14,14 @@ export default function MainMenu() {
 
   const toggleLanguage = () => {
     const newLanguage = userProgress?.language === 'en' ? 'es' : 'en';
-    setUserProgress({ ...userProgress, language: newLanguage });
+    setUserProgress({ 
+      ...userProgress, 
+      language: newLanguage, 
+      name: userProgress?.name || '', 
+      completedLetters: userProgress?.completedLetters || [], 
+      stars: userProgress?.stars || 0 
+    });
   };
-
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-400 to-purple-500 p-4 overflow-auto">
