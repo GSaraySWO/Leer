@@ -24,6 +24,10 @@ export default function MainMenu()  {
     setUserProgress(defaultUserProgress);
   };
 
+  const handleBack = () => {
+      setState('welcome');
+  };
+
   const toggleLanguage = () => {
     const newLanguage = userProgress?.language === 'en' ? 'es' : 'en';
     setUserProgress({ 
@@ -82,7 +86,12 @@ export default function MainMenu()  {
           >
             {userProgress?.language === 'en' ? 'Reset' : 'Reiniciar'}
           </button>
-
+          <button
+            onClick={handleBack}
+            className="aspect-square rounded-xl flex items-center justify-center text-2xl font-bold transition-all transform active:scale-95 bg-blue-400 text-white shadow-lg"
+          >
+            {userProgress?.language === 'en' ? 'Back' : 'Regresar'}
+          </button>
         </div>
       </div>
     </div>
