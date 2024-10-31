@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
 import { Globe2, PlayCircle } from 'lucide-react';
 
@@ -6,6 +6,7 @@ export default function Welcome() {
   const [name, setName] = useState('');
   const [language, setLanguage] = useState<'en' | 'es'>('en');
   const { setUserProgress, setState } = useGameStore();
+  const [gameMode, setGameMode] = useState<'learn' | 'associate' | 'stories'>('learn');
 
   const handleStart = () => {
     if (name.trim()) {
@@ -14,6 +15,7 @@ export default function Welcome() {
         language,
         completedLetters: [],
         stars: 0,
+        gameMode: 'learn'
       });
       setState('menu');
     }
@@ -66,6 +68,44 @@ export default function Welcome() {
               >
                 <Globe2 size={20} />
                 Español
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">
+              {language === 'en' ? "Choose your game mode" : 'Selecciona tu modo de juego'}
+            </label>
+            <div className="flex gap-4">
+              <button
+                onClick={() => setGameMode('learn')}
+                className={`flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors ${
+                  gameMode === 'learn'
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {language === 'en' ? 'Learn' : 'Aprender'}
+              </button>
+              <button
+                onClick={() => setGameMode('associate')}
+                className={`flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors ${
+                  gameMode === 'associate'
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {language === 'en' ? 'Associate' : 'Asociar'}
+              </button>
+              <button
+                onClick={() => setGameMode('stories')}
+                className={`flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors ${
+                  gameMode === 'stories'
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {language === 'en' ? 'Stories' : 'Historias'}
               </button>
             </div>
           </div>

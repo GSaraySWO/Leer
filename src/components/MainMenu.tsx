@@ -1,19 +1,19 @@
-// import React from 'react';
 import { useGameStore } from '../store/gameStore';
 import { Star, Award } from 'lucide-react';
 import { UserProgress } from '../types/game';
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-export default function MainMenu() {
-  const { userProgress, setState, setSelectedLetter, setUserProgress } = useGameStore();
+export default function MainMenu()  {
+  const { userProgress, setState, setSelectedLetter, setUserProgress } = useGameStore(state => state);
   
   const defaultUserProgress: UserProgress = {
-    name: '',
-    language: 'en',
-    completedLetters: [],
-    stars: 0
-  }; // Define the default state for userProgress
+      name: userProgress?.name || '',
+      language: userProgress?.language || 'en',
+      completedLetters: [],
+      stars: 0,
+      gameMode: 'learn'
+  }; 
 
   const handleLetterClick = (letter: string) => {
     setSelectedLetter(letter);
@@ -27,13 +27,14 @@ export default function MainMenu() {
   const toggleLanguage = () => {
     const newLanguage = userProgress?.language === 'en' ? 'es' : 'en';
     setUserProgress({ 
-      ...userProgress, 
-      language: newLanguage, 
-      name: userProgress?.name || '', 
-      completedLetters: userProgress?.completedLetters || [], 
-      stars: userProgress?.stars || 0 
-    });
-  };
+          ...userProgress, 
+          language: newLanguage, 
+          name: userProgress?.name || '', 
+          completedLetters: userProgress?.completedLetters || [], 
+          stars: userProgress?.stars || 0,
+          gameMode: userProgress?.gameMode || 'learn' // Ensure gameMode is always assigned
+        });
+    };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-400 to-purple-500 p-4 overflow-auto">

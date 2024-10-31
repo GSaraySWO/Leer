@@ -17,6 +17,9 @@ export interface UserProgress {
   language: 'en' | 'es';
   completedLetters: string[];
   stars: number;
+  gameMode: GameMode;
 }
 
 export type GameState = 'welcome' | 'menu' | 'letter' | 'practice';
+
+export type GameMode = 'learn' | 'associate' | 'stories';
