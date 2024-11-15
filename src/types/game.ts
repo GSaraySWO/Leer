@@ -13,7 +13,6 @@ export interface Example {
 }
 
 export interface UserProgress {
-  name: string;
   language: 'en' | 'es';
   completedLetters: string[];
   stars: number;

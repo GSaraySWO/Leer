@@ -55,9 +55,8 @@ export default function VowelLesson() {
     setUserProgress({ 
       ...userProgress, 
       language: newLanguage, 
-      name: userProgress?.name || '', 
       completedLetters: userProgress?.completedLetters || [], 
-      stars: userProgress?.stars || 0 ,
+      stars: userProgress?.stars || 0,
       gameMode: userProgress?.gameMode || 'learn'
     });
   };

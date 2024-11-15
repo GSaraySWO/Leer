@@ -14,7 +14,7 @@ interface GameStore {
 
 export const useGameStore = create<GameStore>((set) => ({
   currentState: (localStorage.getItem('currentState') as GameState) || 'welcome',
-  userProgress: localStorage.getItem('userProgress') ? JSON.parse(localStorage.getItem('userProgress') as string) : { name: '', language: 'en' as const, stars: 0, completedLetters: [], gameMode: 'learn' as const },
+  userProgress: localStorage.getItem('userProgress') ? JSON.parse(localStorage.getItem('userProgress') as string) : { language: 'en' as const, stars: 0, completedLetters: [], gameMode: 'learn' as const },
   selectedLetter: localStorage.getItem('selectedLetter') || null,
   setState: (state) => {
     localStorage.setItem('currentState', state);
@@ -40,7 +40,7 @@ export const useGameStore = create<GameStore>((set) => ({
             ...state.userProgress,
             completedLetters: [...state.userProgress.completedLetters, letter],
           }
-        : { completedLetters: [letter], name: '', language: 'en' as const, stars: 0, gameMode: 'learn' as const };
+        : { completedLetters: [letter], language: 'en' as const, stars: 0, gameMode: 'learn' as const };
       
       localStorage.setItem('userProgress', JSON.stringify(updatedProgress));
       return { userProgress: updatedProgress };
@@ -53,7 +53,7 @@ export const useGameStore = create<GameStore>((set) => ({
             ...state.userProgress,
             stars: state.userProgress.stars + amount,
           }
-        : { stars: amount, completedLetters: [], name: '', language: 'en' as const, gameMode: 'learn' as const };
+        : { stars: amount, completedLetters: [], language: 'en' as const, gameMode: 'learn' as const };
       
       localStorage.setItem('userProgress', JSON.stringify(updatedProgress));
       return { userProgress: updatedProgress };

@@ -14,6 +14,10 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+window.addEventListener('beforeunload', () => {
+  localStorage.setItem('currentState', 'welcome');
+});
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

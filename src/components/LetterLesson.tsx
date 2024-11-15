@@ -6,7 +6,7 @@ import { Example } from '../types/game';
 const VOWELS = ['A', 'E', 'I', 'O', 'U'];
 
 export default function LetterLesson() {
-  const { selectedLetter, setState, userProgress, addStars, addCompletedLetter, setUserProgress } = useGameStore();
+  const {selectedLetter, setState, userProgress, addStars, addCompletedLetter, setUserProgress } = useGameStore();
   const [selectedSyllable, setSelectedSyllable] = useState<string | null>(null);
   const [examples, setExamples] = useState<Example[]>([]);
   const [loading, setLoading] = useState(true);
@@ -65,9 +65,8 @@ export default function LetterLesson() {
     setUserProgress({ 
       ...userProgress, 
       language: newLanguage, 
-      name: userProgress?.name || '', 
       completedLetters: userProgress?.completedLetters || [], 
-      stars: userProgress?.stars || 0 ,
+      stars: userProgress?.stars || 0,
       gameMode: userProgress?.gameMode || 'learn'
     });
   };

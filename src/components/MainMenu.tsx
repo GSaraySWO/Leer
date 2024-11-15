@@ -8,7 +8,6 @@ export default function MainMenu()  {
   const { userProgress, setState, setSelectedLetter, setUserProgress } = useGameStore(state => state);
   
   const defaultUserProgress: UserProgress = {
-      name: userProgress?.name || '',
       language: userProgress?.language || 'en',
       completedLetters: [],
       stars: 0,
@@ -33,10 +32,9 @@ export default function MainMenu()  {
     setUserProgress({ 
           ...userProgress, 
           language: newLanguage, 
-          name: userProgress?.name || '', 
           completedLetters: userProgress?.completedLetters || [], 
           stars: userProgress?.stars || 0,
-          gameMode: userProgress?.gameMode || 'learn' // Ensure gameMode is always assigned
+          gameMode: userProgress?.gameMode || 'learn'
         });
     };
 
