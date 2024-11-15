@@ -22,8 +22,8 @@ export const letterExamples: LetterExamples = {
         syllable: 'da'
         },
         {
-        word: 'Dash',  // Action/Movement
-        translation: 'Correr',
+        word: 'Dado',  // Action/Movement
+        translation: 'Dado',
         image: 'https://images.unsplash.com/photo-1501901609772-df0848060b71',
         audio: '',
         syllable: 'da'

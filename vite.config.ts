@@ -14,6 +14,10 @@ export default defineConfig({
           dest: 'src/assets/images' // Replace with the destination folder
         },
         {
+          src: 'src/assets/images/*.png', // Replace with the path to your specific file
+          dest: 'src/assets/images' // Replace with the destination folder
+        },
+        {
           src: 'src/assets/audios/*.mp3', // Replace with the path to your specific file
           dest: 'src/assets/audios' // Replace with the destination folder
         },

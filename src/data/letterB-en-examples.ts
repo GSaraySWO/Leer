@@ -10,35 +10,35 @@ export const letterExamples: LetterExamples = {
     {
       word: 'Banana',
       translation: 'Banano',
-      image: '/src/assets/images/banana.jpg',
+      image: '/src/assets/images/banana.png',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Ball',
       translation: 'Bola',
-      image: '/src/assets/images/ball.jpg',
+      image: '/src/assets/images/ball.png',
       audio: '',
       syllable: 'ba'
     },
     {
-      word: 'Balloon',
-      translation: 'Globo',
-      image: '/src/assets/images/balloon.jpg',
+      word: 'Balloons',
+      translation: 'Globos',
+      image: '/src/assets/images/balloon.png',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Band',
       translation: 'Banda',
-      image: '/src/assets/images/band.jpg',
+      image: '/src/assets/images/band.png',
       audio: '',
       syllable: 'ba'
     },
     {
       word: 'Bath',
       translation: 'Baño',
-      image: '/src/assets/images/bath.jpg',
+      image: '/src/assets/images/bath.png',
       audio: '',
       syllable: 'ba'
     },
@@ -46,35 +46,35 @@ export const letterExamples: LetterExamples = {
     {
       word: 'Bear',
       translation: 'Oso',
-      image: 'https://images.unsplash.com/photo-1530595467537-0b5996c41f2d',
+      image: '/src/assets/images/bear.jpg',
       audio: '',
       syllable: 'be'
     },
     {
       word: 'Bell',
       translation: 'Campana',
-      image: 'https://images.unsplash.com/photo-1516916759473-600c07bc12d4',
+      image: '/src/assets/images/bell.png',
       audio: '',
       syllable: 'be'
     },
     {
       word: 'Bed', 
       translation: 'Cama',
-      image: 'https://images.unsplash.com/photo-1505693314120-0d443867891c',
+      image: '/src/assets/images/bed.png',
       audio: '',
       syllable: 'be'
     },
     {
-      word: 'Berry',
-      translation: 'Mora',
-      image: 'https://images.unsplash.com/photo-1591373032196-95f69f12783b',
+      word: 'Beans',
+      translation: 'Frijoles',
+      image: '/src/assets/images/beans.png',
       audio: '',
       syllable: 'be'
     },
     {
       word: 'Beach',
       translation: 'Playa',
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+      image: '/src/assets/images/beach.png',
       audio: '',
       syllable: 'be'
     },
@@ -82,35 +82,35 @@ export const letterExamples: LetterExamples = {
     {
       word: 'Bird', 
       translation: 'Pájaro',
-      image: 'https://images.unsplash.com/photo-1506224477007-45ef744b6999',
+      image: '/src/assets/images/bird.jpg',
       audio: '',
       syllable: 'bi'
     },
     {
-      word: 'Bike', 
+      word: 'Bird', 
       translation: 'Bicicleta',
-      image: 'https://images.unsplash.com/photo-1493585552824-131927c85d09',
-      audio: '',
-      syllable: 'bi'
-    },
-    {
-      word: 'Biscuit',
-      translation: 'Bizcocho',
-      image: 'https://images.unsplash.com/photo-1577985042774-16d9f25c8d02',
-      audio: '',
-      syllable: 'bi'
-    },
-    {
-      word: 'Bingo',
-      translation: 'Bingo',
-      image: 'https://images.unsplash.com/photo-1603781083888-0d9e2dd3af6b',
+      image: '/src/assets/images/bike.png',
       audio: '',
       syllable: 'bi'
     },
     {
       word: 'Bin',
       translation: 'Papelera',
-      image: 'https://images.unsplash.com/photo-1577658462134-eef37f9b462d',
+      image: '/src/assets/images/bin.png',
+      audio: '',
+      syllable: 'bi'
+    },
+    {
+      word: 'Bingo',
+      translation: 'Bingo',
+      image: '/src/assets/images/bingo.png',
+      audio: '',
+      syllable: 'bi'
+    },
+    {
+      word: 'Birthday',
+      translation: 'Cumpleaños',
+      image: '/src/assets/images/birthday.jpg',
       audio: '',
       syllable: 'bi'
     },
@@ -118,35 +118,35 @@ export const letterExamples: LetterExamples = {
     {
       word: 'Boat',
       translation: 'Bote',
-      image: 'https://images.unsplash.com/photo-1473654729523-203e25dfda10',
+      image: '/src/assets/images/boat.png',
       audio: '',
       syllable: 'bo'
     },
     {
       word: 'Bone',
       translation: 'Hueso',
-      image: 'https://images.unsplash.com/photo-1525286116112-b59af11adad1',
+      image: '/src/assets/images/bone.png',
       audio: '',
       syllable: 'bo'
     },
     {
       word: 'Book',
       translation: 'Libro',
-      image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794',
+      image: '/src/assets/images/book.png',
       audio: '',
       syllable: 'bo'
     },
     {
       word: 'Bottle',
       translation: 'Botella',
-      image: 'https://images.unsplash.com/photo-1582508745317-35bbf47c59b1',
+      image: '/src/assets/images/bottle.png',
       audio: '',
       syllable: 'bo'
     },
     {
       word: 'Box',
       translation: 'Caja',
-      image: 'https://images.unsplash.com/photo-1509475826633-fed577a2c71b',
+      image: '/src/assets/images/box.png',
       audio: '',
       syllable: 'bo'
     },
@@ -154,35 +154,35 @@ export const letterExamples: LetterExamples = {
     {
       word: 'Bus',
       translation: 'Bus',
-      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952',
+      image: '/src/assets/images/bus.png',
       audio: '',
       syllable: 'bu'
     },
     {
       word: 'Bull',
       translation: 'Toro',
-      image: 'https://images.unsplash.com/photo-1518280357100-c11e928a41e0',
+      image: '/src/assets/images/bull.png',
       audio: '',
       syllable: 'bu'
     },
     {
       word: 'Bunny',
       translation: 'Conejito',
-      image: 'https://images.unsplash.com/photo-1559579312-df4e4b3d3b14',
+      image: '/src/assets/images/bunny.jpg',
       audio: '',
       syllable: 'bu'
     },
     {
       word: 'Butter',
       translation: 'Mantequilla',
-      image: 'https://images.unsplash.com/photo-1586993045670-0fcce54e427f',
+      image: '/src/assets/images/butter.png',
       audio: '',
       syllable: 'bu'
     },
     {
-      word: 'Button',
-      translation: 'Botón',
-      image: 'https://images.unsplash.com/photo-1611078483393-1b4e12117f17',
+      word: 'Bubbles',
+      translation: 'Burbujas',
+      image: '/src/assets/images/bubbles.jpg',
       audio: '',
       syllable: 'bu'
     }
