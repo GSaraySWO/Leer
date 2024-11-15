@@ -162,11 +162,11 @@ export default function LetterLesson() {
                 <div
                   key={index}
                   className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+                  onClick={() => handleImageSelect(example.word)}
                 >
                   <img
                     src={example.image}
                     alt={example.word}
-                    onClick={() => handleImageSelect(example.word)}
                     className="w-full h-48 object-contain"
                   />
                   <div className="p-4">

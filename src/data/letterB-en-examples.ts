@@ -87,7 +87,7 @@ export const letterExamples: LetterExamples = {
       syllable: 'bi'
     },
     {
-      word: 'Bird', 
+      word: 'Bike', 
       translation: 'Bicicleta',
       image: '/src/assets/images/bike.png',
       audio: '',
