@@ -26,6 +26,10 @@ export default defineConfig({
           dest: 'src/assets/audios/palabras_mp3' // Replace with the destination folder
         },
         {
+          src: 'src/assets/audios/words_mp3/*.mp3', // Replace with the path to your specific file
+          dest: 'src/assets/audios/words_mp3' // Replace with the destination folder
+        },
+        {
           src: 'src/assets/audios/silabas_mp3/*.mp3', // Replace with the path to your specific file
           dest: 'src/assets/audios/silabas_mp3' // Replace with the destination folder
         }

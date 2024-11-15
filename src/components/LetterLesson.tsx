@@ -88,6 +88,17 @@ export default function LetterLesson() {
     }
   };
 
+  const handleImageSelect = (word: string) => {
+    let audiofolder = 'palabras_mp3';
+    if (userProgress?.language === 'en') {
+      audiofolder = 'words_mp3';
+    }
+
+    const audioFilePath = `../src/assets/audios/${audiofolder}/${word}.mp3`;
+    const audio = new Audio(audioFilePath);
+    audio.play();
+  };  
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-blue-400 to-purple-500 flex items-center justify-center">
@@ -155,6 +166,7 @@ export default function LetterLesson() {
                   <img
                     src={example.image}
                     alt={example.word}
+                    onClick={() => handleImageSelect(example.word)}
                     className="w-full h-48 object-contain"
                   />
                   <div className="p-4">
